@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import pandas as pd
 
-df= pd.read_csv('../New Folder (2)/df_directores.csv')
+df= pd.read_csv('C:/Users/Leonardo/Desktop/New folder (2)/jupyter/df_directores.csv')
 
 app = FastAPI()
 
