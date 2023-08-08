@@ -76,19 +76,23 @@ de manera individual en una lista
 '''
 
 @app.get('/director/{director}')
-def get_director(nombre_director):
+def get_director(nombre_director: str):
     series = df[df['director'] == nombre_director]
     retorno = series['return'].sum()
+    pe= {}
+    pe['director'] = nombre_director
+    pe['retorno total'] = retorno
+ 
     peliculas = []
-                
-    for i in range(len(series)):
+    
+    for i in range(int(len(series))):
         peli = {}
-        peli['titulo'] = ((series['title'].iloc[i]))
-        peli['fecha de estreno'] = (series['release_date'].iloc[i])
-        peli['retorno'] = (series['return'].iloc[i])
-        peli['presupuesto'] = (series['budget'].iloc[i])
-        peli['ganancia'] = (series['revenue'].iloc[i])
-       
+        peli['titulo'] = series['title'].iloc[i]
+        peli['fecha de estreno'] = str(series['release_date'].iloc[i])
+        peli['retorno'] = str(series['return'].iloc[i])
+        peli['presupuesto'] = str(series['budget'].iloc[i])
+        peli['ganancia'] = series['revenue'].iloc[i]
         peliculas.append(peli)
-    return (f'datos del director {nombre_director}: exito: {retorno}, peliculas: {peliculas}')
-        
+    pe['peliculas'] = peliculas
+    return pe
+
