@@ -1,7 +1,14 @@
 from fastapi import FastAPI
 import pandas as pd
+import numpy as np
+import csv
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import linear_kernel
 
 df= pd.read_csv('df_directores.csv')
+dftop = pd.read_csv('C:/Users/Leonardo/Desktop/recomendacion/top1000.csv')
+
 
 app = FastAPI()
 
@@ -95,4 +102,29 @@ def get_director(nombre_director: str):
         peliculas.append(peli)
     pe['peliculas'] = peliculas
     return pe
+
+data = []
+with open('C:/Users/Leonardo/Desktop/New folder (3)/matriz (4).csv', 'r') as csvfile:
+    csvreader = csv.reader(csvfile)
+    for row in csvreader:
+        data.append(row)
+
+# Convierte la lista en un arreglo NumPy
+cosine = np.array(data, dtype=np.float32)
+indices = pd.Series(dftop.index, index=dftop['title']).drop_duplicates().to_dict()
+
+@app.get('/recomendacion/{title}')
+def recomendacion(title):
+    idx = indices.get(title)
+    
+    if idx is None:
+        return {"error": "Película no encontrada."}
+    
+    score = enumerate(cosine[idx])
+    score = sorted(score, key=lambda x: x[1], reverse=True)
+    score = score[1:6]
+
+    sim_index = [i[0] for i in score]
+    recommended_titles = dftop['title'].iloc[sim_index].tolist()
+    return {"recommended_movies": recommended_titles}
 
