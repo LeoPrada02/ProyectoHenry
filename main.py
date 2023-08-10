@@ -104,7 +104,7 @@ def get_director(nombre_director: str):
     return pe
 
 data = []
-with open('C:/Users/Leonardo/Desktop/New folder (3)/matriz (4).csv', 'r') as csvfile:
+with open('matriz (4).csv', 'r') as csvfile:
     csvreader = csv.reader(csvfile)
     for row in csvreader:
         data.append(row)
