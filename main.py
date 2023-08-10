@@ -7,7 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics.pairwise import linear_kernel
 
 df= pd.read_csv('df_directores.csv')
-dftop = pd.read_csv('C:/Users/Leonardo/Desktop/recomendacion/top1000.csv')
+dftop = pd.read_csv('top1000.csv')
 
 
 app = FastAPI()
