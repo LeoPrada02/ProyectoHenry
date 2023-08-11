@@ -25,3 +25,16 @@
 ->def recomendacion: Esta funcion recibe el nombre de una pelicula y devuelve las 5 mas 'similares' (no logre usar todo el dataset por el alto coste computacional asi que la matriz esta recortada a las 1000 peliculas mas populares)
 
 Todas estas funciones se encuentran en main.py
+
+## Parte 3: EDA
+En este EDA exploramos las relaciones entre algunas variables y la evolucion y crecimiento del cine con el paso de los años, asi como ver cuales son las productoras mas importantes del cine, el proceso completo se encuentra en el archivo EDA.ipynb
+
+## Parte 4: Modelo de recomendacion
+El proceso en el que creo la matriz de recomendacion que luego uso se puede ver en Algoritmo Recomendacion.ipynb, la creo en ese notebook, luego la exporto como csv y en main.py la vuelvo a importar y la transformo en un array, de esta manera la matriz no es creada en la API haciendo que sea menos pesada y por consiguiente mas rapida, tambien para ahorrarme problemas de espacio con el render
+
+
+
+
+
+
+
