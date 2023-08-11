@@ -30,7 +30,8 @@ Todas estas funciones se encuentran en main.py
 En este EDA exploramos las relaciones entre algunas variables y la evolucion y crecimiento del cine con el paso de los años, asi como ver cuales son las productoras mas importantes del cine, el proceso completo se encuentra en el archivo EDA.ipynb
 
 ## Parte 4: Modelo de recomendacion
-El proceso en el que creo la matriz de recomendacion que luego uso se puede ver en Algoritmo Recomendacion.ipynb, la creo en ese notebook, luego la exporto como csv y en main.py la vuelvo a importar y la transformo en un array, de esta manera la matriz no es creada en la API haciendo que sea menos pesada y por consiguiente mas rapida, tambien para ahorrarme problemas de espacio con el render
+El proceso en el que creo la matriz de recomendacion que luego uso se puede ver en Algoritmo Recomendacion.ipynb, la creo en ese notebook, luego la exporto como csv y en main.py la vuelvo a importar y la transformo en un array, de esta manera la matriz no es creada en la API haciendo que sea menos pesada y por consiguiente mas rapida, tambien para ahorrarme problemas de espacio con el render, para ver mas a detalle el proceso y la explicacion de la matriz les refiero el video con el que me guié
+[Modelo Tdfid](https://www.youtube.com/watch?v=ijtxuF_5kEU&ab_channel=AISciences).<br>
 
 
 
